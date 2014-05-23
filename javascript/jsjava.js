@@ -32,8 +32,7 @@ $.ajax({
 		latlng: crd.latitude + ',' + crd.longitude,
 		sensor: true
 	},
-
-	dataType: 'jsonp',
+	
 	success: function(data) {
 		console.log(data);
 		
