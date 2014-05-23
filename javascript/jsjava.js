@@ -37,6 +37,7 @@ $.ajax({
 	success: function(data) {
 		console.log(data);
 		$('.js-sto').text(data.results[0].formatted_address);
+		$('.js-land').text(data.results[5].formatted_address);
 	}
 });
 
