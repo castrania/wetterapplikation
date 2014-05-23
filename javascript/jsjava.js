@@ -9,7 +9,14 @@ function success(pos) {
 
   $('.js-lt').text(crd.latitude);
   $('.js-long').text(crd.longitude);
-  $('.js-acc').text(crd.accuracy);
+  $('.js-acc').text(crd.accuracy + ' m');
+
+$.ajax({
+	url: https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/37.8267,-122.423
+	success: function(data) {
+		console.log(data);
+	}
+})
 
 };
 
