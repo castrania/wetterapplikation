@@ -23,6 +23,7 @@ $.ajax({
 		$('.js-temp').text(data.currently.apparentTemperature + ' °C');
 		$('.js-ws').text(data.currently.windSpeed + ' ');
 		$('.js-sum').text(data.hourly.summary + ' ');
+
 	}
 });
 
@@ -32,10 +33,10 @@ $.ajax({
 		latlng: crd.latitude + ',' + crd.longitude,
 		sensor: true
 	},
-	
+
 	success: function(data) {
 		console.log(data);
-		
+		$('.js-sto').text(data.results[0].formatted_address);
 	}
 });
 
