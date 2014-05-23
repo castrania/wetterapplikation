@@ -22,7 +22,7 @@ $.ajax({
 		console.log(data);
 		$('.js-temp').text(data.currently.apparentTemperature + ' °C');
 		$('.js-ws').text(data.currently.windSpeed + ' ');
-		$('.js.sum').text(data.hourly.summary + ' ');
+		$('.js-sum').text(data.hourly.summary + ' ');
 	}
 });
 
