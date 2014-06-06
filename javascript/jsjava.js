@@ -63,7 +63,7 @@ $('.js-address').on('click', 'a', function(event) {
 
 		success: function(data) {
 			console.log(data);
-
+			
 			var lat = data.results[0].geometry.location.lat;
 			var lng = data.results[0].geometry.location.lng;
 
