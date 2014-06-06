@@ -65,7 +65,7 @@ $('.js-address').on('click', 'a', function(event) {
 			console.log(data);
 			$('.js-address-result').text(
 				data.results[0].geometry.location.lat +
-				',' +
+				', ' +
 				data.results[0].geometry.location.lng);
 		}
 	});
