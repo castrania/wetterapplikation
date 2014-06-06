@@ -27,23 +27,24 @@ $.ajax({
 	}
 });
 
-function success(geocode) {
-  var crd = geocode.coords;
-
-  $('.js-adress').text(crd.adress);
-
-
 $.ajax({
-	url: 'https://maps.googleapis.com/maps/api/geocode/output?parameters' + crd.adress
+	url: 'https://maps.googleapis.com/maps/api/geocode/json',
 	data: {
-		units : 'si'
+		latlng: crd.latitude + ',' + crd.longitude,
+		sensor: true
 	},
 
-	dataType: 'jsonp',
 	success: function(data) {
 		console.log(data);
-		;
-
+		$('.js-sto').text(data.results[0].formatted_address);
+		$('.js-land').text(data.results[5].formatted_address);
 	}
 });
 
+};
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
