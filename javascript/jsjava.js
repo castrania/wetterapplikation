@@ -63,27 +63,26 @@ $('.js-address').on('click', 'a', function(event) {
 
 		success: function(data) {
 			console.log(data);
-			$('.js-address-result').text(
-				data.results[0].geometry.location.lat +
-				', ' +
-				data.results[0].geometry.location.lng) ;
+
+			var lat = data.results[0].geometry.location.lat;
+			var lng = data.results[0].geometry.location.lng;
+
+			$.ajax({
+				url: 'https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/' + lat + lng,
+				data: {
+					units : 'si'
+				},
+
+				dataType: 'jsonp',
+				success: function(data) {
+					console.log(data);
+					$('.js-costum-temp').text(data.currently.apparentTemperature + ' °C');
+					$('.js-costum-wind').text(data.currently.windSpeed + ' ');
 		}
 
-		var lat = data.results[0].geometry.location.lat;
-		var lng = data.results[0].geometry.location.lng;
 	});
 
-	$.ajax({
-	url: 'https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/' + lat + lng,
-	data: {
-		units : 'si'
-	},
-
-	dataType: 'jsonp',
-	success: function(data) {
-		console.log(data);
-		$('.js-costum-temp').text(data.currently.apparentTemperature + ' °C');
-		$('.js-costum-wind').text(data.currently.windSpeed + ' ');
+	
 		
 
 });
