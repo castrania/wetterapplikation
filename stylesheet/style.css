@@ -10,3 +10,8 @@
     font-style: normal;
 
 }
+
+.weather-icon {
+	font-family: 'meteoconsRegular';
+	font-size: 3em;
+}
