@@ -5,54 +5,41 @@ var options = {
 };
 
 function success(pos) {
-  var crd = pos.coords;
+	var crd = pos.coords;
 
-  $('.js-lt').text(crd.latitude);
-  $('.js-long').text(crd.longitude);
-  $('.js-acc').text(crd.accuracy + ' m');
+	$('.js-lat').text(crd.latitude);
+	$('.js-long').text(crd.longitude);
+	$('.js-acc').text(crd.accuracy + ' m');
 
-$.ajax({
-	url: 'https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/' + crd.latitude + ',' + crd.longitude,
-	data: {
-		units : 'si'
-	},
+	$.ajax({
+		url: 'https://maps.googleapis.com/maps/api/geocode/json',
+		data: {
+			latlng: crd.latitude + ',' + crd.longitude,
+			sensor: true
+		},
+		success: function(data) {
+			$('.js-address').text(data.results[0].formatted_address);
+		}
+	});
 
-	dataType: 'jsonp',
-	success: function(data) {
-		console.log(data);
+	getWeahterData(crd.latitude, crd.longitude, function(data) {
 		$('.js-temp').text(data.currently.apparentTemperature + ' °C');
-		$('.js-ws').text(data.currently.windSpeed + ' ');
-		$('.js-sum').text(data.hourly.summary + ' ');
-
-	}
-});
-
-$.ajax({
-	url: 'https://maps.googleapis.com/maps/api/geocode/json',
-	data: {
-		latlng: crd.latitude + ',' + crd.longitude,
-		sensor: true
-	},
-
-	success: function(data) {
-		console.log(data);
-		$('.js-sto').text(data.results[0].formatted_address);
-		$('.js-land').text(data.results[5].formatted_address);
-	}
-});
-
-};
+		$('.js-windspeed').text(data.currently.windSpeed + ' m/s');
+	});
+}
 
 function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
-};
+	console.warn('ERROR(' + err.code + '): ' + err.message);
+}
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-$('.js-address').on('click', 'a', function(event) {
+// http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=true_or_false
+
+$('.js-custom-address').on('click', 'a', function(event) {
 	event.preventDefault();
 
-	var address = $('input', '.js-address').val();
+	var address = $('input', '.js-custom-address').val();
 
 	$.ajax({
 		url: 'http://maps.googleapis.com/maps/api/geocode/json',
@@ -60,31 +47,39 @@ $('.js-address').on('click', 'a', function(event) {
 			address: address,
 			sensor: false
 		},
-
 		success: function(data) {
-			console.log(data);
-			
-			var lat = data.results[0].geometry.location.lat;
-			var lng = data.results[0].geometry.location.lng;
+			$('.js-custom-address-result').text(
+				data.results[0].geometry.location.lat +
+				',' +
+				data.results[0].geometry.location.lng
+			);
 
-			$.ajax({
-				url: 'https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/' + lat + lng,
-				data: {
-					units : 'si'
-				},
-
-				dataType: 'jsonp',
-				success: function(data) {
-					console.log(data);
-					$('.js-costum-temp').text(data.currently.apparentTemperature + ' °C');
-					$('.js-costum-wind').text(data.currently.windSpeed + ' ');
-				}
-
+			getWeahterData(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng, function(data) {
+				$('.js-custom-address-temp').text(data.currently.apparentTemperature + ' °C');
 			});
 		}
-
 	});
 });
+
+var getWeahterData = function(lat, lng, callback) {
+	$.ajax({
+		url: 'https://api.forecast.io/forecast/a955df0e9afe8c822ebb3adf30265fb6/' + lat + ',' + lng,
+		data: {
+			units : 'si'
+		},
+		dataType: 'jsonp',
+		success: function(data) {
+			callback(data);
+		}
+	});
+};
+
+// clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day
+
+var weathericons = {
+	'clear-day' : B;
+	'clear-night' : C;
+}
 
 
 
