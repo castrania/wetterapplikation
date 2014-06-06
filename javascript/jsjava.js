@@ -53,7 +53,7 @@ $.ajax({
 
 	url: 'http://maps.googleapis.com/maps/api/geocode/json',
 	data: {
-		adress: 'Teufeerstrasse 19, 9000+St. gallen' ,
+		adress: 'Teufenerstrasse 19, 9000+St. gallen' ,
 		sensor: false
 	},
 
