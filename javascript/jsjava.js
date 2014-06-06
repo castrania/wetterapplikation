@@ -27,6 +27,26 @@ $.ajax({
 	}
 });
 
+function success(geocode) {
+  var crd = geocode.coords;
+
+  $('.js-adress').text(crd.adress);
+
+
+$.ajax({
+	url: 'https://maps.googleapis.com/maps/api/geocode/output?parameters' + crd.adress + ',' + crd.,
+	data: {
+		units : 'si'
+	},
+
+	dataType: 'jsonp',
+	success: function(data) {
+		console.log(data);
+		;
+
+	}
+});
+
 $.ajax({
 	url: 'https://maps.googleapis.com/maps/api/geocode/json',
 	data: {
@@ -46,5 +66,7 @@ $.ajax({
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
+
+
 
 navigator.geolocation.getCurrentPosition(success, error, options);
