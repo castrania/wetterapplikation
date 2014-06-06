@@ -78,13 +78,11 @@ $('.js-address').on('click', 'a', function(event) {
 					console.log(data);
 					$('.js-costum-temp').text(data.currently.apparentTemperature + ' °C');
 					$('.js-costum-wind').text(data.currently.windSpeed + ' ');
+
+			});
 		}
 
 	});
-
-	
-		
-
 });
 
 
