@@ -49,9 +49,36 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-$('.js-adress').on('click', 'a', function() {
+$('.js-address').on('click', 'a', function(event) {
+	event.preventDefault();
+
+	var address = $('input', '.js-address').val();
+
+	$ajax({
+		url: 'http://maps.googleapis.com/maps/api/geocode/json',
+		data: {
+			address: address;
+			sensor: false
+		},
+
+		success: function(data) {
+			console.log(data);
+		}
+	});
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
