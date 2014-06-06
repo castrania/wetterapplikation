@@ -54,7 +54,7 @@ $('.js-address').on('click', 'a', function(event) {
 
 	var address = $('input', '.js-address').val();
 
-	$ajax({
+	$.ajax({
 		url: 'http://maps.googleapis.com/maps/api/geocode/json',
 		data: {
 			address: address,
