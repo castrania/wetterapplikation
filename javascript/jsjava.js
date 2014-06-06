@@ -49,19 +49,9 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-$.ajax({
+$('.js-adress').on('click', 'a', function() {
 
-	url: 'http://maps.googleapis.com/maps/api/geocode/json',
-	data: {
-		adress: 'Teufenerstrasse 19, 9000+St. gallen' ,
-		sensor: false
-	},
-
-	success: function(data){
-		console.log(data)
-	}
 });
-
 
 
 
