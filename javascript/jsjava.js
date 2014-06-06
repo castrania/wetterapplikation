@@ -34,7 +34,7 @@ function success(geocode) {
 
 
 $.ajax({
-	url: 'https://maps.googleapis.com/maps/api/geocode/output?parameters' + crd.adress + ','
+	url: 'https://maps.googleapis.com/maps/api/geocode/output?parameters' + crd.adress
 	data: {
 		units : 'si'
 	},
