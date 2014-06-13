@@ -1,89 +1,50 @@
 <!doctype html>
- <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <link rel="stylesheet" href="stylesheet/style.css">
-   <title>Meine Position</title>
- </head>
- <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meine Position</title>
 
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
   <h1>Meine Position</h1>
+
   <dl>
     <dt>Longitude</dt>
-    <dd class="js-long"></dd>
+    <dd class="js-long">-</dd>
 
     <dt>Latitude</dt>
-    <dd class="js-lt"></dd>
+    <dd class="js-lat">-</dd>
 
     <dt>Accuracy</dt>
-    <dd class="js-acc"></dd>
+    <dd class="js-acc">-</dd>
 
-    <dt>Adresse</dt>
-    <dd class="js-sto"></dd>
+    <dt>Address</dt>
+    <dd class="js-address">-</dd>
 
-    <dt>Land</dt>
-    <dd class="js-land"></dd>
-
-    <dt>Temperature</dt>
-    <dd class="js-temp"></dd>
+    <dt>Current Temperature</dt>
+    <dd class="js-temp">-</dd>
 
     <dt>Wind Speed</dt>
-    <dd class="js-ws"></dd>
+    <dd class="js-windspeed">-</dd>
 
-    <dt>Summary</dt>
-    <dd class="js-sum"></dd>
+    <dt>Weather</dt>
+    <dd class="weather-icon js-weather-icon">)</dd>
 
-    <dt>Adresse</dt>
-    <dd class="js-address">
-    	<input type="text">
-		<a href="#">Search</a> <br>
-		<span class="js-address-result"></span>
-	</dd>
-
-  </dl>
-
-  <h1>Wunschort</h1>
-  <dl>
-    <dt>Longitude</dt>
-    <dd class="js-long"></dd>
-
-    <dt>Latitude</dt>
-    <dd class="js-lt"></dd>
-
-    <dt>Accuracy</dt>
-    <dd class="js-acc"></dd>
-
-	<dt>Weather</dt>
-	<dd class="js-weather-icon js-data-icon"=>abcdefghijklmnopqrstuvwxyz</dd>
-
-    <dt>Adresse</dt>
-    <dd class="js-sto"></dd>
-
-    <dt>Land</dt>
-    <dd class="js-land"></dd>
-
-    <dt>Temperature</dt>
-    <dd class="js-custom-address-temp"></dd>
-
-    <dt>Wind Speed</dt>
-    <dd class="js-costum-wind"></dd>
-
-    <dt>Summary</dt>
-    <dd class="js-sum"></dd>
-
-    <dt>Costum Adresse</dt>
+    <dt>Custom Address</dt>
     <dd class="js-custom-address">
-    	<input type="text">
-		<a href="#">Search</a> <br>
-		<span class=="js-custom-address-result"></span>
-	</dd>
+      <input type="text">
+      <a href="#">Search</a><br>
+      <span class="js-custom-address-result"></span>
+    </dd>
+    <dt>Custom Temperature</dt>
+    <dd class="js-custom-address-temp">-</dd>
 
-    <dt>WM - Wetter in Manaus</dt>
-    <dd classe="js-costum-manaus"></dd>
-
+    <dt>Custom Weather</dt>
+    <dd class="weather-icon js-custom-weather-icon">)</dd>
   </dl>
+
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="javascript/jsjava.js"></script>
-  
- </body>
- </html> 
+  <script src="javascripts/script.js"></script>
+</body>
+</html>

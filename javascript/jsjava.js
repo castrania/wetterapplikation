@@ -4,6 +4,15 @@ var options = {
   maximumAge: 0
 };
 
+// clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
+
+var weatherIcons = {
+	'clear-day': 'B',
+	'clear-night': 'C',
+	'rain': 'R',
+	'partly-cloudy-night': 'I'
+};
+
 function success(pos) {
 	var crd = pos.coords;
 
@@ -23,8 +32,11 @@ function success(pos) {
 	});
 
 	getWeahterData(crd.latitude, crd.longitude, function(data) {
+		console.log(data);
 		$('.js-temp').text(data.currently.apparentTemperature + ' °C');
 		$('.js-windspeed').text(data.currently.windSpeed + ' m/s');
+
+		$('.js-weather-icon').text(weatherIcons[data.currently.icon]);
 	});
 }
 
@@ -56,6 +68,8 @@ $('.js-custom-address').on('click', 'a', function(event) {
 
 			getWeahterData(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng, function(data) {
 				$('.js-custom-address-temp').text(data.currently.apparentTemperature + ' °C');
+
+				$('.js-custom-weather-icon').text(weatherIcons[data.currently.icon]);
 			});
 		}
 	});
@@ -73,17 +87,6 @@ var getWeahterData = function(lat, lng, callback) {
 		}
 	});
 };
-
-// clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day
-/*
-var weathericons = {
-	'clear-day' : 'B';
-	'clear-night' : 'C';
-}
-
-*/
-
-
 
 
 
