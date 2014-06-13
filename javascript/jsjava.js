@@ -108,7 +108,7 @@ $.ajax({
 				success: function(data) {
 					$('.js-weather-manaus').text(
 						data.currently.summary + ' (' + data.currently.temperature + '°C');
-					console.log(data);
+					
 				}
 			});
 		}
@@ -133,7 +133,7 @@ $.ajax({
 				success: function(data) {
 					$('.js-weather-Fortaleza').text(
 						data.currently.summary + ' (' + data.currently.temperature + '°C');
-					console.log(data);
+					
 				}
 			});
 		}
