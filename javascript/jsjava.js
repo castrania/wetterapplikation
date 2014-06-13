@@ -114,6 +114,31 @@ $.ajax({
 		}
 });
 
+$.ajax({
+	url: 'https://maps.googleapis.com/maps/api/geocode/json',
+	data: {
+			address: 'Natal',
+			sensor: false //nicht durch einen Sensor ermittelt
+		},
+	success: function(data) {
+		var lat = data.results[0].geometry.location.lat;
+		var lng = data.results[0].geometry.location.lng;
+		
+		$.ajax({
+				url: 'https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/' + lat + ',' + lng,
+				data: {
+					units : 'si'
+				},
+				dataType: 'jsonp',
+				success: function(data) {
+					$('.js-weather-Natal').text(
+						data.currently.summary + ' (' + data.currently.temperature + '°C');
+					console.log(data);
+				}
+			});
+		}
+});
+
 
 
 
