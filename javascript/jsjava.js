@@ -75,11 +75,13 @@ var getWeahterData = function(lat, lng, callback) {
 };
 
 // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day
-
+/*
 var weathericons = {
 	'clear-day' : 'B';
 	'clear-night' : 'C';
 }
+
+*/
 
 
 
