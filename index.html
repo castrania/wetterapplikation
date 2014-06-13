@@ -1,55 +1,48 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Meine Position</title>
+	<title>Wetteraplikation</title>
 
-  <link rel="stylesheet" href="stylesheet/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
 <body>
-  <h1>Meine Position</h1>
 
-  <dl>
-    <dt>Longitude</dt>
-    <dd class="js-long">-</dd>
+<!-- Start of first page -->
+<div data-role="page" id="foo">
 
-    <dt>Latitude</dt>
-    <dd class="js-lat">-</dd>
+	<div data-role="header">
+		<h1>Foo</h1>
+	</div><!-- /header -->
 
-    <dt>Accuracy</dt>
-    <dd class="js-acc">-</dd>
+	<div role="main" class="ui-content">
+		<p>I'm first in the source order so I'm shown as the page.</p>
+		<p>View internal page called <a href="#bar">bar</a></p>
+	</div><!-- /content -->
 
-    <dt>Address</dt>
-    <dd class="js-address">-</dd>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
 
-    <dt>Current Temperature</dt>
-    <dd class="js-temp">-</dd>
+<!-- Start of second page -->
+<div data-role="page" id="bar">
 
-    <dt>Wind Speed</dt>
-    <dd class="js-windspeed">-</dd>
+	<div data-role="header">
+		<h1>Bar</h1>
+	</div><!-- /header -->
 
-    <dt>Weather</dt>
-    <dd class="weather-icon js-weather-icon">)</dd>
+	<div role="main" class="ui-content">
+		<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+		<p><a href="#foo">Back to foo</a></p>
+	</div><!-- /content -->
 
-    <dt>Custom Address</dt>
-    <dd class="js-custom-address">
-      <input type="text">
-      <a href="#">Search</a><br>
-      <span class="js-custom-address-result"></span>
-    </dd>
-    <dt>Custom Temperature</dt>
-    <dd class="js-custom-address-temp">-</dd>
-
-    <dt>Weather in Manaus</dt>
-    <dd class="js-weather-manaus">)</dd>
-
-    <dt>Weather in Fortaleza</dt>
-    <dd class="js-weather-Fortaleza">)</dd>
-
-  </dl>
-
-
-  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="javascript/jsjava.js"></script>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
 </body>
 </html>
