@@ -77,7 +77,7 @@ $('.js-custom-address').on('click', 'a', function(event) {
 
 var getWeahterData = function(lat, lng, callback) {
 	$.ajax({
-		url: 'https://api.forecast.io/forecast/a955df0e9afe8c822ebb3adf30265fb6/' + lat + ',' + lng,
+		url: 'https://api.forecast.io/forecast/f800bddbd5dfdf9fea597f61776caa0a/' + lat + ',' + lng,
 		data: {
 			units : 'si'
 		},
@@ -87,6 +87,7 @@ var getWeahterData = function(lat, lng, callback) {
 		}
 	});
 };
+
 
 
 
