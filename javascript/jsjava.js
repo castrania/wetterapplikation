@@ -117,7 +117,7 @@ $.ajax({
 $.ajax({
 	url: 'https://maps.googleapis.com/maps/api/geocode/json',
 	data: {
-			address: 'Natal',
+			address: 'Fortaleza',
 			sensor: false //nicht durch einen Sensor ermittelt
 		},
 	success: function(data) {
@@ -131,7 +131,7 @@ $.ajax({
 				},
 				dataType: 'jsonp',
 				success: function(data) {
-					$('.js-weather-Natal').text(
+					$('.js-weather-Fortaleza').text(
 						data.currently.summary + ' (' + data.currently.temperature + '°C');
 					console.log(data);
 				}
