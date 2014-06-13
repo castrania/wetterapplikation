@@ -106,6 +106,8 @@ $.ajax({
 				},
 				dataType: 'jsonp',
 				success: function(data) {
+					$('.js-weather-manaus').text(
+						data.currently.summary + ' (' + data.currently.temperature + '°C');
 					console.log(data);
 				}
 			});
