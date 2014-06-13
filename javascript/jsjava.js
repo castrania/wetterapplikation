@@ -89,8 +89,16 @@ var getWeahterData = function(lat, lng, callback) {
 };
 
 
-
-
+$.ajax({
+	url: 'https://maps.googleapis.com/maps/api/geocode/json',
+	data: {
+			address: 'Manaus',
+			sensor: false //nicht durch einen Sensor ermittelt
+		},
+	success: function(data) {
+		console.log(data);
+		}
+});
 
 
 
