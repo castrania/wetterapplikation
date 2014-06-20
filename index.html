@@ -62,7 +62,7 @@
 <!--Settingsansicht -->
 
 <div data-role="page" id="settings">
-	<div data-role="header">
+	
 		<div data-role="panel" id="menusetting" data-display="push" data-position="left">
 		<ul data-role="listview">
 			<li><a href="#main">Custom Location</a></li>
@@ -70,6 +70,36 @@
 			<li>Settings</li>
 		</ul>
 	</div><!-- /panel -->
+
+	<div data-role="header">
+		<h1>Settings</h1>
+		<a href="#menusettings" class="ui-btn ui-btn-left ui-btn-inline ui-mini ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Menu</a>
+	</div>
+
+	<div role="main" class="ui-content">
+		<form>
+			<div class="ui-field-contain"></div>
+			<label for="select-native-1">Language</label>
+			<select name="select-native-1" class="js-language">
+				<option value="de">Deutsch</option>
+				<option value="en">Englisch</option>
+				<option value="it">Italienisch</option>
+				<option value="es">Espagnol</option>
+
+			</select>
+		</form>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
 
 
 <script src="service.js"></script>
