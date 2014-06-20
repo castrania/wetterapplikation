@@ -3,6 +3,7 @@ $(document).ready(function(){
 		enableHeigAccuracy: true,
 		timeout: 5000,
 		maximumAge: 0
+		
 	};
 
 	var success = function(pos) {
