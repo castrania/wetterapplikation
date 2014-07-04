@@ -7,6 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<link rel="stylesheet" href="stylesheets/style.css">
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
@@ -32,6 +33,9 @@
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
+		<div class="js-current-weather weather-icon">)</div>
+
+
 		<p>Current position: <span class="js-current-position">-</span></p>
 		<p>Current address: <span class="js-current-address">-</span></p>
 	</div><!-- /content -->
@@ -54,17 +58,16 @@
 	</div><!-- /panel -->
 
 	<div data-role="header">
-		<h1>Custom Page</h1>
+		<h1 class="js-custom-location-name">Custom weather</h1>
 		<a href="#menucustom" class="ui-btn ui-btn-left ui-btn-inline ui-mini ui-btn-icon-left ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Menu</a>
 	</div><!-- /header -->
 
-	<div role="main" class="ui-content">
-		<p>Page content goes here.</p>
+	<div role="main" class="ui-content js-custom-location">
+		<label for="text-basic">Location name:</label>
+		<input type="text" name="text-basic" id="text-basic" value="">
+		<a href="#" class="ui-btn ui-icon-search ui-btn-icon-right js-custom-location-search">Search</a>
+		<p class="js-custom-location-result"></p>
 	</div><!-- /content -->
-
-	<div data-role="footer">
-		<h4>Page Footer</h4>
-	</div><!-- /footer -->
 </div><!-- /page -->
 
 
